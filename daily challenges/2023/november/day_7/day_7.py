@@ -2,10 +2,11 @@ import heapq
 import math
 from typing import List
 
+
 class Solution:
 
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        monsters = [i[0]/i[1] for i in zip(dist, speed)]
+        monsters = [i[0] / i[1] for i in zip(dist, speed)]
         heapq.heapify(monsters)
         print(monsters)
         kills = 0
@@ -16,7 +17,6 @@ class Solution:
                 kills += 1
                 continue
             return kills
-
 
 
 if __name__ == '__main__':

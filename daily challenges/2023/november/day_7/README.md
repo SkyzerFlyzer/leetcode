@@ -1,5 +1,6 @@
-1921. Eliminate Maximum Number of Monsters
+# 1921. Eliminate Maximum Number of Monsters
 
+## Description
 
 You are playing a video game where you are defending your city from a group of n monsters. You are given a 0-indexed integer array dist of size n, where dist[i] is the initial distance in kilometers of the ith monster from the city.
 
@@ -11,7 +12,7 @@ You lose when any monster reaches your city. If a monster reaches the city at th
 
 Return the maximum number of monsters that you can eliminate before you lose, or n if you can eliminate all the monsters before they reach the city.
 
- 
+ ## Examples
 
 Example 1:
 
@@ -40,7 +41,7 @@ After a minute, the distances of the monsters are [X,0,2], so you lose.
 You can only eliminate 1 monster.
  
 
-Constraints:
+## Constraints:
 
 n == dist.length == speed.length
 1 <= n <= 105
