@@ -1,17 +1,21 @@
+import heapq
+import math
 from typing import List
 
 class Solution:
 
     def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
-        monsters = list(sorted(map(list, zip(dist, speed)), key=lambda x: x[0]/x[1]))
+        monsters = [i[0]/i[1] for i in zip(dist, speed)]
+        heapq.heapify(monsters)
+        print(monsters)
         kills = 0
-        while monsters[0][0] > 0:
-            kills += 1
-            monsters.pop(0)
+        while True:
             if not monsters:
-                break
-            monsters[0][0] -= kills * monsters[0][1]
-        return kills
+                return kills
+            if math.ceil(heapq.heappop(monsters)) > kills:
+                kills += 1
+                continue
+            return kills
 
 
 
