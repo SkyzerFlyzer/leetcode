@@ -28,3 +28,8 @@ Explanation: Starting at cell (3, 1), it takes at least 4 seconds to reach cell 
 
 1 <= sx, sy, fx, fy <= 109
 0 <= t <= 109
+
+## Missing Edge case
+if movement is 0 and time is 1 then the output is expected as false
+
+if movement is 0 and time is greater than 1 then the output is true as expected
