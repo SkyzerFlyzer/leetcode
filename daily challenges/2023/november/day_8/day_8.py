@@ -3,8 +3,8 @@ class Solution:
         x_travel = abs(sx - fx)
         y_travel = abs(sy - fy)
         total_travel = max(x_travel, y_travel)
+        if total_travel > t:
+            return False
         if total_travel == 0 and t == 1:
             return False
-        if total_travel <= t:
-            return True
-        return False
+        return True
