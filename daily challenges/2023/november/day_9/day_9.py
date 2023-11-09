@@ -1,11 +1,12 @@
+import itertools
 import re
 
 
 class Solution:
     def countHomogenous(self, s: str) -> int:
-        pattern = re.compile(r'((.)\2*)')
-        homogenous_substrings = [x[0] for x in re.findall(pattern, s)]
+        homogenous_substrings = itertools.groupby(s)
         total = 0
-        for substring in homogenous_substrings:
-            total += len(substring) * (len(substring) + 1) // 2
+        for _, group in homogenous_substrings:
+            group_len = len(list(group))
+            total += (group_len * (group_len + 1)) // 2
         return total % (10**9 + 7)
