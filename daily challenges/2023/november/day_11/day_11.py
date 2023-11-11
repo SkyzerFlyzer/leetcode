@@ -1,6 +1,6 @@
 import collections
 from typing import List
-
+import heapq
 
 class Graph:
 
@@ -17,13 +17,18 @@ class Graph:
             return 0
         distances = collections.defaultdict(int)
         distances[node1] = 0
-        queue = collections.deque([(node1, 0)])
+        queue = [(0, node1)]
+        heapq.heapify(queue)
         while queue:
-            node, distance = queue.popleft()
+            distance, node = heapq.heappop(queue)
+            if node == node2:
+                break
+            if distance > distances[node]:
+                continue
             for neighbour, weight in self.nodes[node].items():
                 if neighbour not in distances or distance + weight < distances[neighbour]:
                     distances[neighbour] = distance + weight
-                    queue.append((neighbour, distance + weight))
+                    heapq.heappush(queue, (distance + weight, neighbour))
         if node2 not in distances:
             return -1
         return distances[node2]
