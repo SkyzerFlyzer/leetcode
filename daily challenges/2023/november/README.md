@@ -13,3 +13,5 @@ Day 6's challenge was the first one I completed on leetcode.
 8. [Determine if a Cell Is Reachable at a Given Time](day_8/README.md)
 9. [Count Number of Homogenous Substrings](day_9/README.md)
 10. [Restore the Array From Adjacent Pairs](day_10/README.md)
+11. [Design Graph With Shortest Path Calculator](day_11/README.md)
+12. [Bus Routes](day_12/README.md)
