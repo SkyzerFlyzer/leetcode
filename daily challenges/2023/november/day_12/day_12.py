@@ -13,15 +13,14 @@ class Solution:
         for stops in buses.values():
             if source in stops:
                 queue.append((1, stops))
-        heapq.heapify(queue)
         seen = set()
         while queue:
-            distance, bus_stops = heapq.heappop(queue)
+            distance, bus_stops = queue.pop(0)
             if target in bus_stops:
                 return distance
             for x in range(len(routes)):
                 if x not in seen and bus_stops.intersection(buses[x]):
                     seen.add(x)
-                    heapq.heappush(queue, (distance + 1, buses[x]))
+                    queue.append((distance + 1, buses[x] - seen))
         return -1
 
