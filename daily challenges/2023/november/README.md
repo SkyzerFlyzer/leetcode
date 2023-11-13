@@ -15,3 +15,4 @@ Day 6's challenge was the first one I completed on leetcode.
 10. [Restore the Array From Adjacent Pairs](day_10/README.md)
 11. [Design Graph With Shortest Path Calculator](day_11/README.md)
 12. [Bus Routes](day_12/README.md)
+13. [Sort Vowels in a String](day_13/README.md)
