@@ -1,25 +1,23 @@
-import re
+import collections
+
+
 class Solution:
     def sortVowels(self, s: str) -> str:
-        vowels_pattern = re.compile(r'[aeiouAEIOU]')
-        if not re.search(vowels_pattern, s):
+        vowels_set = set('aeiouAEIOU')
+        count = collections.Counter(s)
+        if not vowels_set.intersection(count):
             return s
-        vowels = []
-        index = []
-        for vowel in re.finditer(vowels_pattern, s):
-            vowels.append(vowel.group())
-            index.append(vowel.start())
-        vowels.sort()
+        vowels = set()
+        for char in count:
+            if char in vowels_set:
+                vowels.add(char)
+                s = s.replace(char, "_")
         if len(vowels) == len(s):
-            return ''.join(vowels)
-        ordered_string = ''
-        prev = 0
-        for i in index:
-            ordered_string += s[prev:i]
-            ordered_string += vowels.pop(0)
-            prev = i+1
-        ordered_string += s[prev:]
-        return ordered_string
+            return ''.join(sorted(vowels))
+        for vowel in sorted(vowels):
+            s = s.replace("_", vowel, count[vowel])
+        return s
+
 
 
 
