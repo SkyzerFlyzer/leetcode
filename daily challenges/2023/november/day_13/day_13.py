@@ -2,7 +2,8 @@ import collections
 
 
 class Solution:
-    def sortVowels(self, s: str) -> str:
+    @staticmethod
+    def sortVowels(s: str) -> str:
         vowels_set = set('aeiouAEIOU')
         count = collections.Counter(s)
         if not vowels_set.intersection(count):
